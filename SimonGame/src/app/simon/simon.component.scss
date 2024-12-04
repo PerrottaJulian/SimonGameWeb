@@ -1,36 +1,58 @@
-.boton1{
-    width: 50px;
-    height: 50px;
-    border-top-left-radius: 100%;
-    border: 0cap;
-    background-color: red;
-}
-.boton2{
-    width: 50px;
-    height: 50px;
-    border-top-right-radius: 100%;
-    border: 0cap;
-    background-color: green;
+$my-red: RGB(250, 0, 40);
+$my-blue: RGB(0, 180, 230);
+$my-green: RGB(0, 204, 0);
+$my-yellow: RGB(210, 210, 0);
 
-}
-.boton3{
-    width: 50px;
-    height: 50px;
-    border-bottom-left-radius: 100%;
-    border: 0cap;
-    background-color: blue;
 
-}
-.boton4{
-    width: 50px;
-    height: 50px;    
-    border-bottom-right-radius: 100%;
-    border: 0cap;
-    background-color: yellow;
+.boton{
+    width: 200px;
+    height: 200px;
+    border-radius: 10%;
+    margin: 16px;
+    transition: all 0.3s ease;
 
+    &.red{
+        background-color: $my-red;
+
+        &:hover{
+            box-shadow: 0px 0px 28px 5px $my-red;
+        }
+
+    }
+
+    &.blue{
+        background-color: $my-blue;
+
+        &:hover{
+            box-shadow: 0px 0px 28px 5px $my-blue;
+        }
+    
+    }
+
+    &.green{
+        background-color: $my-green;
+
+        &:hover{
+            box-shadow: 0px 0px 28px 5px $my-green;
+        }
+    
+    }
+
+
+    &.yellow{
+        background-color: $my-yellow;
+
+        &:hover{
+            box-shadow: 0px 0px 28px 5px $my-yellow;
+        }
+    
+    }
+
+    
 }
 
 div{
-    padding: 0px;
-    margin: 0px;
+    text-align: center;
 }
+
+
