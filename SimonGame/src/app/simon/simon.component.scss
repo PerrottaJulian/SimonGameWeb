@@ -9,13 +9,56 @@ $my-yellow: RGB(210, 210, 0);
     height: 200px;
     border-radius: 10%;
     margin: 16px;
-    transition: all 0.3s ease;
+    transition: box-shadow 0.2s ease, transform 0.5s ease;
+    cursor: pointer;
+    
 
     &.red{
         background-color: $my-red;
 
+        &:active{
+            box-shadow: 0px 0px 12px 2px $my-red;
+            box-shadow: inset 4px 4px 4px rgba(0, 0, 0, 0.5) !important;
+            transform: translateY(2px);
+        }
+    }
+
+    &.blue{
+        background-color: $my-blue;
+
+        &:active{
+            box-shadow: 0px 0px 12px 2px $my-blue;
+            box-shadow: inset 4px 4px 4px rgba(0, 0, 0, 0.5) !important;
+            transform: translateY(2px);
+        }
+    }
+
+    &.green{
+        background-color: $my-green;
+
+        &:active{
+            box-shadow: 0px 0px 12px 2px $my-green;
+            box-shadow: inset 4px 4px 4px rgba(0, 0, 0, 0.5) !important;
+            transform: translateY(2px);
+        }
+    }
+
+    &.yellow{
+        background-color: $my-yellow;
+
+        &:active{
+            box-shadow: 0px 0px 12px 2px $my-yellow;
+            box-shadow: inset 4px 4px 4px rgba(0, 0, 0, 0.5) !important;
+            transform: translateY(2px);
+        }
+    }
+
+    /*
+    &.red{
+        background-color: $my-red;
+
         &:hover{
-            box-shadow: 0px 0px 28px 5px $my-red;
+            box-shadow: 0px 0px 12px 2px $my-red;
         }
 
     }
@@ -24,7 +67,7 @@ $my-yellow: RGB(210, 210, 0);
         background-color: $my-blue;
 
         &:hover{
-            box-shadow: 0px 0px 28px 5px $my-blue;
+            box-shadow: 0px 0px 12px 2px $my-blue;
         }
     
     }
@@ -33,7 +76,7 @@ $my-yellow: RGB(210, 210, 0);
         background-color: $my-green;
 
         &:hover{
-            box-shadow: 0px 0px 28px 5px $my-green;
+            box-shadow: 0px 0px 12px 2px $my-green;
         }
     
     }
@@ -43,11 +86,16 @@ $my-yellow: RGB(210, 210, 0);
         background-color: $my-yellow;
 
         &:hover{
-            box-shadow: 0px 0px 28px 5px $my-yellow;
+            box-shadow: 0px 0px 12px 2px $my-yellow;
         }
-    
     }
 
+    &:active{
+        box-shadow: inset 4px 4px 4px rgba(0, 0, 0, 0.5) !important;
+        transform: translateY(2px);
+    }*/
+
+    ////////////////////////
     
 }
 
