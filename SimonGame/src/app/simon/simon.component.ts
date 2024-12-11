@@ -13,38 +13,29 @@ export class SimonComponent implements OnInit, OnDestroy {
   private oscillator: OscillatorNode | null = null;
   private soundTimeout: any = null;
 
-  botonActive:boolean = true
+  redbotonActive : boolean = false
+  bluebotonActive : boolean = false
+  greenbotonActive : boolean = false
+  yellowbotonActive : boolean = false
 
-  @ViewChild('redB', { static: true }) redB!: ElementRef<HTMLButtonElement>;
+  constructor(){}
 
-  /*ngAfterViewInit() {
-    // Simula el clic después de que la vista ha sido inicializada
-    setTimeout(() => {
-      this.redB.nativeElement.click();
-    }, 2000); // Presiona automáticamente el botón después de 2 segundos
-  }*/
+  ngOnInit():void {}
+  ngOnDestroy(): void {}
 
-  constructor(/*@Inject(DOCUMENT) private document: Document*/){}
 
-  ngOnInit()
-  {
-    //this.document.addEventListener('mouseup', this.stopTone.bind(this));
-  }
-  
-  ngOnDestroy(): void {
-    // Remover el evento global al destruir el componente
-    //this.document.removeEventListener('mouseup', this.stopTone.bind(this));
-  }
-
-  onClick(freq:number){
+  onClick(button:string, freq:number){
+    this.activateButton(button)
 
     if(this.oscillator){
       this.stopTone()
+      this.deactivateAll()
 
     }else{
       this.playTone(freq)      
       this.soundTimeout = setTimeout(() => {
         this.stopTone()
+        this.deactivateAll()
       }, 1000);
     }
 
@@ -68,6 +59,7 @@ export class SimonComponent implements OnInit, OnDestroy {
   stopTone():void
   {
     if(this.oscillator){
+      this.deactivateAll()
       this.oscillator.stop();
       this.oscillator.disconnect()
       this.oscillator = null;
@@ -77,9 +69,61 @@ export class SimonComponent implements OnInit, OnDestroy {
       clearTimeout(this.soundTimeout);
       this.soundTimeout = null;
     }
+
     
   }
 
+  activateButton(button:string)
+  {
+    switch (button)
+    {
+      case 'red':
+        this.redbotonActive = true
+        break;
+
+      case 'blue':
+        this.bluebotonActive = true
+        break;
+
+      case 'green':
+        this.greenbotonActive = true
+        break;
+
+      case 'yellow':
+        this.yellowbotonActive = true
+        break;
+    }
+  }
+
+  deactivateButton(button:string)
+  {
+    switch (button)
+    {
+      case 'red':
+        this.redbotonActive = false
+        break;
+
+      case 'blue':
+        this.bluebotonActive = false
+        break;
+
+      case 'green':
+        this.greenbotonActive = false
+        break;
+
+      case 'yellow':
+        this.yellowbotonActive = false
+        break;
+    }
+  }
+  
+  deactivateAll()
+  {
+    this.redbotonActive = false 
+    this.greenbotonActive = false 
+    this.bluebotonActive = false
+    this.yellowbotonActive = false
+  }
 
 
 }

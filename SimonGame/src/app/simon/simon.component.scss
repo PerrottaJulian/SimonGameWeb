@@ -1,101 +1,95 @@
-$my-red: RGB(250, 0, 40);
-$my-blue: RGB(0, 180, 230);
-$my-green: RGB(0, 204, 0);
-$my-yellow: RGB(210, 210, 0);
+$my-red: rgb(250, 0, 40);
+$my-blue: rgb(0, 180, 230);
+$my-green: rgb(0, 204, 0);
+$my-yellow: rgb(210, 210, 0);
 
+.blinking {
+    animation: blink 1s infinite;
+  }
 
 .boton{
     width: 200px;
     height: 200px;
     border-radius: 10%;
     margin: 16px;
-    transition: box-shadow 0.2s ease, transform 0.5s ease;
+    transition: transform 0.5s ease;
     cursor: pointer;
-    
 
+    border: none !important;
+    box-shadow: 0px 0px 6px 2px rgba(0,0,0,0.25) !important;
+    
+    /*Red Button*/
     &.red{
         background-color: $my-red;
 
         &:active{
-            box-shadow: 0px 0px 12px 2px $my-red;
-            box-shadow: inset 4px 4px 4px rgba(0, 0, 0, 0.5) !important;
+            box-shadow: inset 0px 0px 4px 4px rgba(0, 0, 0, 0.5) !important;
             transform: translateY(2px);
+        }
+
+        &.sound-on{
+            transform: translateY(2px);
+            box-shadow: 
+                0px 0px 28px 6px $my-red,
+                inset 0px 0px 4px 4px rgba(0, 0, 0, 0.5) !important;
+            background-color: lighten($color: $my-red, $amount: 8);
         }
     }
 
+    /*Blue Button*/
     &.blue{
         background-color: $my-blue;
 
         &:active{
-            box-shadow: 0px 0px 12px 2px $my-blue;
-            box-shadow: inset 4px 4px 4px rgba(0, 0, 0, 0.5) !important;
+            box-shadow: inset 0px 0px 4px 4px rgba(0, 0, 0, 0.5) !important;
             transform: translateY(2px);
+        }
+
+        &.sound-on{
+            transform: translateY(2px);
+            box-shadow: 
+                0px 0px 28px 6px $my-blue,
+                inset 0px 0px 4px 4px rgba(0, 0, 0, 0.5) !important;
+            background-color: lighten($color: $my-blue, $amount: 8);
         }
     }
 
+    /*Green Button*/
     &.green{
         background-color: $my-green;
 
         &:active{
-            box-shadow: 0px 0px 12px 2px $my-green;
-            box-shadow: inset 4px 4px 4px rgba(0, 0, 0, 0.5) !important;
+            box-shadow: inset 0px 0px 4px 4px rgba(0, 0, 0, 0.5) !important;
             transform: translateY(2px);
+        }
+
+        &.sound-on{
+            transform: translateY(2px);
+            box-shadow: 
+                0px 0px 28px 6px $my-green,
+                inset 0px 0px 4px 4px rgba(0, 0, 0, 0.5) !important;
+            background-color: lighten($color: $my-green, $amount: 8);
         }
     }
 
+    /*Yellow Button*/
     &.yellow{
         background-color: $my-yellow;
 
         &:active{
-            box-shadow: 0px 0px 12px 2px $my-yellow;
-            box-shadow: inset 4px 4px 4px rgba(0, 0, 0, 0.5) !important;
+            box-shadow: inset 0px 0px 4px 4px rgba(0, 0, 0, 0.5) !important;
             transform: translateY(2px);
         }
-    }
 
-    /*
-    &.red{
-        background-color: $my-red;
-
-        &:hover{
-            box-shadow: 0px 0px 12px 2px $my-red;
-        }
-
-    }
-
-    &.blue{
-        background-color: $my-blue;
-
-        &:hover{
-            box-shadow: 0px 0px 12px 2px $my-blue;
-        }
-    
-    }
-
-    &.green{
-        background-color: $my-green;
-
-        &:hover{
-            box-shadow: 0px 0px 12px 2px $my-green;
-        }
-    
-    }
-
-
-    &.yellow{
-        background-color: $my-yellow;
-
-        &:hover{
-            box-shadow: 0px 0px 12px 2px $my-yellow;
+        &.sound-on{
+            transform: translateY(2px);
+            box-shadow: 
+                0px 0px 28px 6px $my-yellow,
+                inset 0px 0px 4px 4px rgba(0, 0, 0, 0.5) !important;
+            background-color: lighten($color: $my-yellow, $amount: 8);
         }
     }
 
-    &:active{
-        box-shadow: inset 4px 4px 4px rgba(0, 0, 0, 0.5) !important;
-        transform: translateY(2px);
-    }*/
-
-    ////////////////////////
     
 }
 

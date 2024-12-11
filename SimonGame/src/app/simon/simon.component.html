@@ -5,10 +5,12 @@
     <button class="boton green" (mousedown)="playTone(392.00)" (mouseup)="stopTone()" (mouseleave)="stopTone()" ></button>
     <button class="boton yellow" (mousedown)="playTone(523.25)" (mouseup)="stopTone()" (mouseleave)="stopTone()" ></button> -->
 
-    <button class="boton red" (click)="onClick(261.63)"  ></button>
-    <button class="boton blue" (click)="onClick(329.63)" ></button>
-    <button class="boton green" (click)="onClick(392.00)" ></button>
-    <button class="boton yellow" (click)="onClick(523.25)" ></button>
+    <button [class.sound-on] = 'redbotonActive' class="boton red" (click)="onClick('red', 261.63)"></button>
+    <button [class.sound-on] = 'bluebotonActive' class="boton blue" (click)="onClick('blue', 329.63)" ></button>
+    <button [class.sound-on] = 'greenbotonActive' class="boton green" (click)="onClick('green', 392.00)" ></button>
+    <button [class.sound-on] = 'yellowbotonActive' class="boton yellow" (click)="onClick('yellow', 523.25)" ></button>
+    
+    
 
 
 </div>
