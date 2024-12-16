@@ -1,6 +1,6 @@
-import { DOCUMENT } from '@angular/common';
-import { AfterViewInit, Component, ElementRef, Inject, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { log } from 'console';
+import {Component, OnDestroy, OnInit } from '@angular/core';
+import { simonLogic } from './simonLogic';
+
 
 @Component({
   selector: 'simon',
@@ -18,8 +18,10 @@ export class SimonComponent implements OnInit, OnDestroy {
   greenbotonActive : boolean = false
   yellowbotonActive : boolean = false
 
-  constructor(){}
+  game:simonLogic = new simonLogic()
 
+  constructor(){} 
+  
   ngOnInit():void {}
   ngOnDestroy(): void {}
 
@@ -37,6 +39,8 @@ export class SimonComponent implements OnInit, OnDestroy {
         this.stopTone()
         this.deactivateAll()
       }, 1000);
+
+      this.game.newTurn()
     }
 
     

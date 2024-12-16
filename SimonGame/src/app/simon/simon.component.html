@@ -9,6 +9,9 @@
     <button [class.sound-on] = 'bluebotonActive' class="boton blue" (click)="onClick('blue', 329.63)" ></button>
     <button [class.sound-on] = 'greenbotonActive' class="boton green" (click)="onClick('green', 392.00)" ></button>
     <button [class.sound-on] = 'yellowbotonActive' class="boton yellow" (click)="onClick('yellow', 523.25)" ></button>
+
+    <p>TURNO: {{this.game.turn}}</p>
+    <button (click)="this.game.newGame()">RESET</button>
     
     
 

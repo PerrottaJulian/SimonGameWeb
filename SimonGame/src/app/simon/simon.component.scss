@@ -3,16 +3,13 @@ $my-blue: rgb(0, 180, 230);
 $my-green: rgb(0, 204, 0);
 $my-yellow: rgb(210, 210, 0);
 
-.blinking {
-    animation: blink 1s infinite;
-  }
 
 .boton{
     width: 200px;
     height: 200px;
     border-radius: 10%;
     margin: 16px;
-    transition: transform 0.5s ease;
+    transition: transform 0.2s ease;
     cursor: pointer;
 
     border: none !important;
@@ -24,11 +21,11 @@ $my-yellow: rgb(210, 210, 0);
 
         &:active{
             box-shadow: inset 0px 0px 4px 4px rgba(0, 0, 0, 0.5) !important;
-            transform: translateY(2px);
+            transform: scale(0.95)
         }
 
         &.sound-on{
-            transform: translateY(2px);
+            transform: scale(0.95);
             box-shadow: 
                 0px 0px 28px 6px $my-red,
                 inset 0px 0px 4px 4px rgba(0, 0, 0, 0.5) !important;
@@ -42,11 +39,11 @@ $my-yellow: rgb(210, 210, 0);
 
         &:active{
             box-shadow: inset 0px 0px 4px 4px rgba(0, 0, 0, 0.5) !important;
-            transform: translateY(2px);
+            transform: scale(0.95);
         }
 
         &.sound-on{
-            transform: translateY(2px);
+            transform: scale(0.95);
             box-shadow: 
                 0px 0px 28px 6px $my-blue,
                 inset 0px 0px 4px 4px rgba(0, 0, 0, 0.5) !important;
@@ -60,11 +57,11 @@ $my-yellow: rgb(210, 210, 0);
 
         &:active{
             box-shadow: inset 0px 0px 4px 4px rgba(0, 0, 0, 0.5) !important;
-            transform: translateY(2px);
+            transform: scale(0.95);
         }
 
         &.sound-on{
-            transform: translateY(2px);
+            transform: scale(0.95);
             box-shadow: 
                 0px 0px 28px 6px $my-green,
                 inset 0px 0px 4px 4px rgba(0, 0, 0, 0.5) !important;
@@ -78,11 +75,11 @@ $my-yellow: rgb(210, 210, 0);
 
         &:active{
             box-shadow: inset 0px 0px 4px 4px rgba(0, 0, 0, 0.5) !important;
-            transform: translateY(2px);
+            transform: scale(0.95);
         }
 
         &.sound-on{
-            transform: translateY(2px);
+            transform: scale(0.95);
             box-shadow: 
                 0px 0px 28px 6px $my-yellow,
                 inset 0px 0px 4px 4px rgba(0, 0, 0, 0.5) !important;
