@@ -1,14 +1,17 @@
-import {Component, OnDestroy, OnInit } from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnDestroy, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { simonLogic } from './simonLogic';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
   selector: 'simon',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './simon.component.html',
   styleUrl: './simon.component.scss'
 })
-export class SimonComponent implements OnInit, OnDestroy {
+export class SimonComponent implements OnInit, OnDestroy, AfterViewInit {
+  @ViewChild('botonRojo', { static: true }) botonRojo!: ElementRef<HTMLButtonElement>;
+
   private audioContext: AudioContext | null = null;
   private oscillator: OscillatorNode | null = null;
   private soundTimeout: any = null;
@@ -22,12 +25,24 @@ export class SimonComponent implements OnInit, OnDestroy {
 
   constructor(){} 
   
-  ngOnInit():void {}
+  ngOnInit():void {
+   
+  }
   ngOnDestroy(): void {}
+  ngAfterViewInit(): void {}
+
+  startGame(){
+    if (!this.audioContext){
+      this.audioContext = new AudioContext()
+    }
+
+    this.onClick('red')
+  }
 
 
-  onClick(button:string, freq:number){
+  onClick(button:string){
     this.activateButton(button)
+    const freq:number = this.getFreq(button)
 
     if(this.oscillator){
       this.stopTone()
@@ -42,7 +57,6 @@ export class SimonComponent implements OnInit, OnDestroy {
 
       this.game.newTurn()
     }
-
     
   }
 
@@ -75,6 +89,26 @@ export class SimonComponent implements OnInit, OnDestroy {
     }
 
     
+  }
+
+  getFreq(button:string):number{
+    switch (button)
+    {
+      case 'red':
+        return 261.63
+
+      case 'blue':
+        return 329.63
+
+      case 'green':
+        return 392.00
+
+      case 'yellow':
+        return 523.25
+
+      default:
+        return 0
+    }
   }
 
   activateButton(button:string)

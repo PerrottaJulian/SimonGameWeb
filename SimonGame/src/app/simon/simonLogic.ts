@@ -8,6 +8,8 @@ export class simonLogic
         this.turn = 0;
     }
 
+    
+
     newTurn(){
         this.turn++
     }
