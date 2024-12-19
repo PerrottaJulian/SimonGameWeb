@@ -5,14 +5,18 @@
     <button class="boton green" (mousedown)="playTone(392.00)" (mouseup)="stopTone()" (mouseleave)="stopTone()" ></button>
     <button class="boton yellow" (mousedown)="playTone(523.25)" (mouseup)="stopTone()" (mouseleave)="stopTone()" ></button> -->
 
-    <button #botonRojo [class.sound-on] = 'redbotonActive' class="boton red" (click)="onClick('red')"></button>
-    <button [class.sound-on] = 'bluebotonActive' class="boton blue" (click)="onClick('blue')" ></button>
-    <button [class.sound-on] = 'greenbotonActive' class="boton green" (click)="onClick('green')" ></button>
-    <button [class.sound-on] = 'yellowbotonActive' class="boton yellow" (click)="onClick('yellow')" ></button>
+    <button [disabled]="buttonsDisabled" [class.sound-on] = 'redButtonPlaying' class="button red" (click)="onClick('red')"></button>
+    <button [disabled]="buttonsDisabled" [class.sound-on] = 'blueButtonPlaying' class="button blue" (click)="onClick('blue')" ></button>
+    <button [disabled]="buttonsDisabled" [class.sound-on] = 'greenButtonPlaying' class="button green" (click)="onClick('green')" ></button>
+    <button [disabled]="buttonsDisabled" [class.sound-on] = 'yellowButtonPlaying' class="button yellow" (click)="onClick('yellow')" ></button>
 
     <p>TURNO: {{this.game.turn}}</p>
     <button *ngIf="this.game.turn != 0" (click)="this.game.newGame()">RESET</button>
     <button *ngIf="this.game.turn === 0" (click)="this.startGame()">START</button>
+
+    <h1>
+        <button (click)="test()"> Boton de test </button>
+    </h1>
     
     
 

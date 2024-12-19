@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, OnDestroy, OnInit, Renderer2, ViewChild } from '@angular/core';
+import {AfterViewInit, BootstrapOptions, Component, ElementRef, OnDestroy, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { simonLogic } from './simonLogic';
 import { CommonModule } from '@angular/common';
 
@@ -16,10 +16,15 @@ export class SimonComponent implements OnInit, OnDestroy, AfterViewInit {
   private oscillator: OscillatorNode | null = null;
   private soundTimeout: any = null;
 
-  redbotonActive : boolean = false
-  bluebotonActive : boolean = false
-  greenbotonActive : boolean = false
-  yellowbotonActive : boolean = false
+  redButtonPlaying : boolean = false
+  blueButtonPlaying : boolean = false
+  greenButtonPlaying : boolean = false
+  yellowButtonPlaying : boolean = false
+
+  buttonsDisabled:boolean = false
+
+  machineTurn:boolean = false
+  playerTurn:boolean = false
 
   game:simonLogic = new simonLogic()
 
@@ -28,31 +33,30 @@ export class SimonComponent implements OnInit, OnDestroy, AfterViewInit {
   ngOnInit():void {
    
   }
+
   ngOnDestroy(): void {}
   ngAfterViewInit(): void {}
 
   startGame(){
-    if (!this.audioContext){
-      this.audioContext = new AudioContext()
-    }
+    this.machineTurn = true
+    this.game.addToSequence()
 
-    this.onClick('red')
   }
 
 
   onClick(button:string){
-    this.activateButton(button)
+    this.playingButton(button)
     const freq:number = this.getFreq(button)
 
     if(this.oscillator){
       this.stopTone()
-      this.deactivateAll()
+      this.stopPlayingAll()
 
     }else{
       this.playTone(freq)      
       this.soundTimeout = setTimeout(() => {
         this.stopTone()
-        this.deactivateAll()
+        this.stopPlayingAll()
       }, 1000);
 
       this.game.newTurn()
@@ -77,7 +81,7 @@ export class SimonComponent implements OnInit, OnDestroy, AfterViewInit {
   stopTone():void
   {
     if(this.oscillator){
-      this.deactivateAll()
+      this.stopPlayingAll()
       this.oscillator.stop();
       this.oscillator.disconnect()
       this.oscillator = null;
@@ -111,56 +115,46 @@ export class SimonComponent implements OnInit, OnDestroy, AfterViewInit {
     }
   }
 
-  activateButton(button:string)
+  //Functions to activate de button´s style when played
+  playingButton(button:string)
   {
     switch (button)
     {
       case 'red':
-        this.redbotonActive = true
+        this.redButtonPlaying = true
         break;
 
       case 'blue':
-        this.bluebotonActive = true
+        this.blueButtonPlaying = true
         break;
 
       case 'green':
-        this.greenbotonActive = true
+        this.greenButtonPlaying = true
         break;
 
       case 'yellow':
-        this.yellowbotonActive = true
+        this.yellowButtonPlaying = true
         break;
     }
   }
 
-  deactivateButton(button:string)
+  //Deactivate Functios
+  stopPlayingAll()
   {
-    switch (button)
-    {
-      case 'red':
-        this.redbotonActive = false
-        break;
-
-      case 'blue':
-        this.bluebotonActive = false
-        break;
-
-      case 'green':
-        this.greenbotonActive = false
-        break;
-
-      case 'yellow':
-        this.yellowbotonActive = false
-        break;
-    }
+    this.redButtonPlaying = false 
+    this.greenButtonPlaying = false 
+    this.blueButtonPlaying = false
+    this.yellowButtonPlaying = false
   }
-  
-  deactivateAll()
+
+  test(){
+    this.buttonsDisabled = !this.buttonsDisabled
+  }
+
+
+  Turn():void
   {
-    this.redbotonActive = false 
-    this.greenbotonActive = false 
-    this.bluebotonActive = false
-    this.yellowbotonActive = false
+
   }
 
 

@@ -4,7 +4,7 @@ $my-green: rgb(0, 204, 0);
 $my-yellow: rgb(210, 210, 0);
 
 
-.boton{
+.button{
     width: 200px;
     height: 200px;
     border-radius: 10%;
@@ -19,9 +19,14 @@ $my-yellow: rgb(210, 210, 0);
     &.red{
         background-color: $my-red;
 
-        &:active{
+        &:not(:disabled):active {
             box-shadow: inset 0px 0px 4px 4px rgba(0, 0, 0, 0.5) !important;
             transform: scale(0.95)
+        }
+
+        &:disabled{
+            background-color: rgba($my-red, 0.2);
+            cursor: default;
         }
 
         &.sound-on{
@@ -37,9 +42,14 @@ $my-yellow: rgb(210, 210, 0);
     &.blue{
         background-color: $my-blue;
 
-        &:active{
+        &:not(:disabled):active {
             box-shadow: inset 0px 0px 4px 4px rgba(0, 0, 0, 0.5) !important;
-            transform: scale(0.95);
+            transform: scale(0.95)
+        }
+
+        &:disabled{
+            background-color: rgba($my-blue, 0.2);
+            cursor: default;
         }
 
         &.sound-on{
@@ -55,9 +65,14 @@ $my-yellow: rgb(210, 210, 0);
     &.green{
         background-color: $my-green;
 
-        &:active{
+        &:not(:disabled):active {
             box-shadow: inset 0px 0px 4px 4px rgba(0, 0, 0, 0.5) !important;
-            transform: scale(0.95);
+            transform: scale(0.95)
+        }
+
+        &:disabled{
+            background-color: rgba($my-green, 0.2);
+            cursor: default;
         }
 
         &.sound-on{
@@ -73,9 +88,14 @@ $my-yellow: rgb(210, 210, 0);
     &.yellow{
         background-color: $my-yellow;
 
-        &:active{
+        &:not(:disabled):active {
             box-shadow: inset 0px 0px 4px 4px rgba(0, 0, 0, 0.5) !important;
-            transform: scale(0.95);
+            transform: scale(0.95)
+        }
+
+        &:disabled{
+            background-color: rgba($my-yellow, 0.2);
+            cursor: default;
         }
 
         &.sound-on{
