@@ -1,4 +1,4 @@
-import {AfterViewInit, BootstrapOptions, Component, ElementRef, OnDestroy, OnInit, Renderer2, ViewChild } from '@angular/core';
+import {AfterViewInit, BootstrapOptions, Component, ElementRef, OnDestroy, OnInit, Renderer2, ViewChild, ViewEncapsulation } from '@angular/core';
 import { simonLogic } from './simonLogic';
 import { CommonModule } from '@angular/common';
 
@@ -64,6 +64,8 @@ export class SimonComponent implements OnInit, OnDestroy, AfterViewInit {
     
   }
 
+  //Tone functions
+
   playTone(freq:number):void
   {
     if (!this.audioContext){
@@ -115,7 +117,7 @@ export class SimonComponent implements OnInit, OnDestroy, AfterViewInit {
     }
   }
 
-  //Functions to activate de button´s style when played
+  //Functions to activate the button´s style when played
   playingButton(button:string)
   {
     switch (button)
@@ -151,11 +153,18 @@ export class SimonComponent implements OnInit, OnDestroy, AfterViewInit {
     this.buttonsDisabled = !this.buttonsDisabled
   }
 
+  test2(){
+    this.onClick('red')
+  }
+
 
   Turn():void
   {
 
   }
+
+
+
 
 
 }
